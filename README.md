@@ -1,1 +1,20 @@
-# Jellyfin Venda System v2.0\n\nSistema de vendas e gerenciamento para Jellyfin.\n\n## Deploy\n\n`ash\ndocker-compose up -d --build\n`\n\n## Configuração\n\nAcesse o painel admin em /api/admin/login\n\n## Endpoints\n\n- POST /api/registro - Registrar novo cliente\n- POST /api/registro/giftcard - Resgatar gift card\n- POST /api/mp/webhook - Webhook Mercado Pago\n- GET /api/admin/* - Endpoints administrativos\n
+ï»¿# Jellyfin Venda System v2.0
+
+Sistema de vendas e gerenciamento para Jellyfin.
+
+## Deploy
+
+`ash
+docker-compose up -d --build
+`
+
+## ConfiguraÃ§Ã£o
+
+Acesse o painel admin em /api/admin/login
+
+## Endpoints
+
+- POST /api/registro - Registrar novo cliente
+- POST /api/registro/giftcard - Resgatar gift card
+- POST /api/mp/webhook - Webhook Mercado Pago
+- GET /api/admin/* - Endpoints administrativos

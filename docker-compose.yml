@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   app:
-    build: ./backend
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     environment:
@@ -15,5 +17,5 @@ services:
       - ADM_SUPREMO_PASSWORD=${ADM_SUPREMO_PASSWORD:-admin}
     volumes:
       # ESSENCIAL: Persistência dos dados JSON
-      - ./backend/data:/app/data
+      - ./data:/app/data
     restart: unless-stopped

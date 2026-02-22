@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Bloquear páginas de venda e checkout para SEO
+Disallow: /api/
+Disallow: /checkout
+Disallow: /pagamento
+Disallow: /confirmar
+Disallow: /registro
+Disallow: /giftcards
+Disallow: /resgate
+
+# Bloquear páginas admin
+Disallow: /admin
+Disallow: /adm
+Disallow: /painel
+
+# Bloquear arquivos de sistema
+Disallow: /static/
+Disallow: /_next/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /config
+
+# Sitemap (se existir)
+# Sitemap: https://seusite.com/sitemap.xml

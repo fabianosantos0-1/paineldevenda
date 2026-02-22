@@ -1337,6 +1337,20 @@ scheduler.add_job(expiry_job, "interval", minutes=5)  # A cada 5 minutos
 scheduler.start()
 
 # ============================================================================
+# SERVIR FRONTEND ESTATICOS
+# ============================================================================
+
+# Verifica se existe build do frontend
+_STATIC_DIR = os.path.join(BASE_DIR, "..", "frontend", "build")
+_ADMIN_STATIC_DIR = os.path.join(BASE_DIR, "..", "admin", "build")
+
+if os.path.exists(_STATIC_DIR):
+    app.mount("/", StaticFiles(directory=_STATIC_DIR, html=True), name="frontend")
+    
+if os.path.exists(_ADMIN_STATIC_DIR):
+    app.mount("/admin", StaticFiles(directory=_ADMIN_STATIC_DIR, html=True), name="admin")
+
+# ============================================================================
 # INICIALIZAÇÃO
 # ============================================================================
 
@@ -1348,6 +1362,8 @@ if __name__ == "__main__":
     print(f"Data: {datetime.utcnow().isoformat()}")
     print(f"MP Configurado: {MercadoPagoService.is_configured()}")
     print(f"Data Dir: {DATA_DIR}")
+    print(f"Frontend: {_STATIC_DIR if os.path.exists(_STATIC_DIR) else 'N/A'}")
+    print(f"Admin: {_ADMIN_STATIC_DIR if os.path.exists(_ADMIN_STATIC_DIR) else 'N/A'}")
     print("="*50)
     
     uvicorn.run(app, host="0.0.0.0", port=8000)

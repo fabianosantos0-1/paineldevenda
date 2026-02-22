@@ -1,0 +1,1 @@
+# Python\n__pycache__/\n*.py[cod]\n*.class\n*.so\n.Python\n\n# Ambiente\n.env\n.venv\nenv/\nvenv/\n\n# IDE\n.vscode/\n.idea/\n\n# Dados (serão criados no container)\nbackend/data/\n*.log\n

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=${SECRET_KEY:-altere-isso-em-producao}
+      - JELLYFIN_URL=${JELLYFIN_URL:-}
+      - JELLYFIN_API_KEY=${JELLYFIN_API_KEY:-}
+      - MERCADO_PAGO_ACCESS_TOKEN=${MERCADO_PAGO_ACCESS_TOKEN:-}
+      - APP_BASE_URL=${APP_BASE_URL:-http://localhost:8000}
+      - ADM_SUPREMO_LOGIN=${ADM_SUPREMO_LOGIN:-admin}
+      - ADM_SUPREMO_PASSWORD=${ADM_SUPREMO_PASSWORD:-admin}
+    volumes:
+      # ESSENCIAL: Persistência dos dados JSON
+      - ./backend/data:/app/data
+    restart: unless-stopped

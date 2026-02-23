@@ -2,7 +2,7 @@
 FROM node:18-alpine AS frontend-build
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
-RUN npm ci
+RUN npm install
 COPY frontend/ ./
 RUN npm run build
 
@@ -10,7 +10,7 @@ RUN npm run build
 FROM node:18-alpine AS admin-build
 WORKDIR /app/admin
 COPY admin/package*.json ./
-RUN npm ci
+RUN npm install
 COPY admin/ ./
 RUN npm run build
 
